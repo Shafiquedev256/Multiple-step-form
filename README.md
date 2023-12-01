@@ -14,7 +14,7 @@ This project is a multiple step form built using React, Vite, and Tailwind CSS. 
 - **Responsive Design**: Ensured the form is fully responsive and accessible on various devices.
 - **Form Validation**: Added validation to ensure accurate and complete user inputs.
 - **Optimized Build**: Utilized Vite for optimized production-ready builds.
-live site https://multiple-step-form.vercel.app/
+[live site](https://multiple-step-form.vercel.app/)
 
 ## Getting Started
 

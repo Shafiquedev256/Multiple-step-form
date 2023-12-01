@@ -1,8 +1,8 @@
 import {useState,useEffect} from "react"
 export const Step3 = ()=>{
-  const [planToggle,setPlanToggle] = useState("Yearly")
+  const [planToggle,setPlanToggle] = useState(localStorage.getItem("period"))
   const [plan,setPlan] = useState([
-    "$9/mo","$12/mo","$15/mo",""
+    "+$1/mo","+$2/mo","+$2/mo"
     ])
   useEffect(()=>{
     if(planToggle == "Yearly"){
@@ -13,14 +13,63 @@ export const Step3 = ()=>{
     }
 localStorage.setItem("period",planToggle)
   },[planToggle])
+  
+  useEffect(()=>{
+    localStorage.setItem("addOn",JSON.stringify([]))
+  },[])
+  
+  const handleOns = ()=>{
+  let object = {
+    title:"Online service",
+    cost:plan[0],
+    count:{
+      Yearly:10,
+      Monthly:1,
+    }
+  }
+  const existingobj = JSON.parse(localStorage.getItem('addOn')) || [];
+    
+    const objectEl = [...existingobj,object]
+  localStorage.setItem("addOn",JSON.stringify(objectEl))
+  }
+  
+  const handleStorage = ()=>{
+  let object = {
+    title:"Larger storage",
+    cost:plan[1],
+    count:{
+      Yearly:20,
+      Monthly:2,
+    }
+  }
+  const existingobj = JSON.parse(localStorage.getItem('addOn')) || [];
+    
+    const objectEl = [...existingobj,object]
+  localStorage.setItem("addOn",JSON.stringify(objectEl))
+  }
+  const handleCustom = ()=>{
+  let object = {
+    title:"Customizable Profile",
+    cost:plan[2],
+    count:{
+      Yearly:20,
+      Monthly:2,
+    }
+  }
+  const existingobj = JSON.parse(localStorage.getItem('addOn')) || [];
+    
+    const objectEl = [...existingobj,object]
+  localStorage.setItem("addOn",JSON.stringify(objectEl))
+  }
+  
   return(
     <div class="w-screen flex justify-center">
     <div class="w-[300px] rounded-2xl bg-white p-4  absolute top-20 shadow-lg">
  <div class=" text-2xl text-[#060E5E] font-bold">Pick add-ons</div>
   <div class="text-gray-400 text-sm"> Add-ons help enhance your gaming experience.</div>
   
-<div class="cards_options hover:bg-[#F9F0FF] hover:border-purple-500">
-<input type="checkbox" class="checked:bg-purple-600"/>
+<div class="cards_options hover:bg-[#F9F0FF] hover:border-purple-500" onClick={handleOns}>
+<input type="checkbox" class="checked:bg-purple-600 "/>
 <div class="flex flex-col ml-2">
 <div class="text-[#060E5E] text-sm font-bold">Online service</div>
 <div class="flex flex-row">
@@ -30,7 +79,7 @@ localStorage.setItem("period",planToggle)
  </div>
  </div>
  
-<div class="cards_options hover:bg-[#F9F0FF] hover:border-purple-500 ">
+<div class="cards_options hover:bg-[#F9F0FF] hover:border-purple-500 " onClick={handleStorage}>
 <input type="checkbox" class="checked:bg-purple-600"/>
 <div class="flex flex-col  ml-2">
 <div class="text-[#060E5E] text-sm font-bold">Larger storage</div>
@@ -41,7 +90,7 @@ localStorage.setItem("period",planToggle)
  </div>
  </div>
  
-<div class="cards_options w-[100%] pr-2 hover:bg-[#F9F0FF] hover:border-purple-500">
+<div class="cards_options w-[100%] pr-2 hover:bg-[#F9F0FF] hover:border-purple-500" onClick={handleCustom}>
 <input type="checkbox" class="checked:bg-purple-600"/>
 <div class="flex flex-col ml-2">
 <div class="text-[#060E5E] text-sm font-bold">Customizable Profile</div>
