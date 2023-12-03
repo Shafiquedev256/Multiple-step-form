@@ -59,8 +59,8 @@ const object = {
   }
   
   return(
-    <div class="w-screen flex justify-center">
-    <div class="w-72 rounded-2xl bg-white p-4  absolute top-20 shadow-lg">
+    <div class="w-screen flex justify-center md:w-min">
+    <div class="w-72 rounded-2xl bg-white p-5 md:static absolute top-20 shadow-lg md:shadow-none md:rounded-none  md:w-[600px]">
  <div class=" text-2xl text-[#060E5E] font-bold">Select your plan</div>
   <div class="text-gray-400 text-sm">You have the option of monthly or yearly billing.</div>
   

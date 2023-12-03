@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 .options{
-  @apply rounded-full  w-10 text-center pt-1 h-10 border-2 border-white text-white font-bold m-2 font-black
+  @apply rounded-full  w-10 text-center pt-1 h-10 border-2  text-white font-bold m-2 font-black
 }
 .input {
   @apply border-[1px] border-gray-400 placeholder-gray-300 rounded p-2 m-1 outline-0 

@@ -18,19 +18,21 @@ export const Confirm = ({step,setStep})=>{
 
   if (period === "Yearly") {
     totalCount += plan.count.Yearly;
+    totalCount ="$"+totalCount+"/yr"
   } else {
     totalCount += plan.count.Monthly;
+    totalCount ="$"+totalCount+"/mo"
   }
 
   setCount(totalCount);
 }, []);
 
   return(
-    <div class="w-screen flex justify-center">
-    <div class="w-72 rounded-2xl bg-white p-5  absolute top-20 shadow-lg">
+    <div class="w-screen flex justify-center md:w-max">
+    <div class="w-72 rounded-2xl bg-white p-5 md:static absolute top-20 shadow-lg md:shadow-none md:rounded-none  md:w-[600px]">
   <div class="text-2xl font-bold text-[#060E5E]">Finishing up</div>
  <div class="text-sm text-gray-400"> Double-check everything looks OK before confirming.</div>
-<div class=" bg-[#F9F0FF] p-2 rounded">
+<div class=" bg-[#590B880F] p-2 rounded">
 <div class="flex flex-col ml-2">
 <div class="text-[#060E5E] text-sm font-bold">{plan.planEl}({period})</div>
  <div class="text-sm text-gray-500"></div>
@@ -44,8 +46,8 @@ export const Confirm = ({step,setStep})=>{
    addOn != []&&(addOn.map(item=>{
      return (
      <div class="flex flex-row justify-between p-2">
-     <span class="text-sm ">{item.title}</span>
-     <span class="text-sm text-[#060E5E]">{item.cost}</span>
+     <span class="text-sm text-gray-500">{item.title}</span>
+     <span class="text-sm text-[#060E5E] font-bold">{item.cost}</span>
      </div>
      )
    }))
@@ -53,9 +55,9 @@ export const Confirm = ({step,setStep})=>{
  </div>
  </div>
  </div>
- <div class="flex flex-row justify-between">
- <span>Total({period})</span>
- <span>{count}</span>
+ <div class="flex flex-row justify-between mt-3 mb-3">
+ <span class="text-sm ml-2 text-gray-600">Total({period})</span>
+ <span class="font-bold text-sm mr-2 text-purple-500">{count}</span>
  
  </div>
     </div>
