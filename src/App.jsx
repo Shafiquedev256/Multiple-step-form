@@ -88,7 +88,10 @@ setStyle4("options border-white")
 {step ==3&&(<Step3/>)}
 {step ==4&&(<Confirm step={step} setStep={setStep}/>)}
 {step ==5&&(<ThankYou/>)}
-<div class="fixed bottom-11  p-3  justify-between md:w-[100%] w-screen md:static  flex bg-gray-200">
+
+<div class="md:hidden w-56 h-80"></div>
+
+<div class="   p-3  justify-between md:w-[100%] w-screen md:static  flex  bg-gray-200">
 {step>1?(<button class="bg-white rounded p-2" onClick={()=>{
 if(step>1){
 setStep(state=>state-1)
