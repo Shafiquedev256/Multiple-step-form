@@ -2,8 +2,8 @@ import {useState,useEffect} from "react"
 export const Confirm = ({step,setStep})=>{
   const [count,setCount] = useState(0)
   const [period,setPeriod] = useState(localStorage.getItem("period"))
-  const [plan,setPlan] = useState(JSON.parse(localStorage.getItem("plan")))
-  const [addOn,setAddOn] = useState(JSON.parse(localStorage.getItem("addOn")))
+  const [plan,setPlan] = useState(JSON.parse(localStorage.getItem("plan"))||[])
+  const [addOn,setAddOn] = useState(JSON.parse(localStorage.getItem("addOn"))||[])
   useEffect(() => {
   let totalCount = 0;
 
