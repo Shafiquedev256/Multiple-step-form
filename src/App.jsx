@@ -92,7 +92,7 @@ setStyle4("options border-white")
 <div class="md:hidden w-56 h-80"></div>
 
 <div class="   p-3  justify-between md:w-[100%] w-screen md:static  flex  bg-gray-200">
-{step>1?(<button class="bg-white rounded p-2" onClick={()=>{
+{step>1||step>5?(<button class="bg-white rounded p-2" onClick={()=>{
 if(step>1){
 setStep(state=>state-1)
 }
